@@ -29,45 +29,128 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
+
     @Test
-    void shouldnextStationIfCurrent9() {
-        radio.setCurrentStation(9);
+    void shouldnextStation() {
+        radio.nextStation();
+        assertEquals(1, radio.getCurrentStation());
+        radio.nextStation();
+        assertEquals(2, radio.getCurrentStation());
+        radio.nextStation();
+        assertEquals(3, radio.getCurrentStation());
+        radio.nextStation();
+        assertEquals(4, radio.getCurrentStation());
+        radio.nextStation();
+        assertEquals(5, radio.getCurrentStation());
+        radio.nextStation();
+        assertEquals(6, radio.getCurrentStation());
+        radio.nextStation();
+        assertEquals(7, radio.getCurrentStation());
+        radio.nextStation();
+        assertEquals(8, radio.getCurrentStation());
+        radio.nextStation();
+        assertEquals(9, radio.getCurrentStation());
+        radio.nextStation();
+        assertEquals(0, radio.getCurrentStation());
+        radio.nextStation();
+        assertEquals(1, radio.getCurrentStation());
+        radio.nextStation();
+        assertEquals(2, radio.getCurrentStation());
+        radio.nextStation();
+        assertEquals(3, radio.getCurrentStation());
 
-        int expected = 0;
-        int actual = radio.nextStation();
-
-        assertEquals(expected, actual);
     }
 
     @Test
-    void shouldnextStationIfCurrent5() {
-        radio.setCurrentStation(5);
+    void shouldprevStation() {
+        radio.prevStation();
+        assertEquals(9, radio.getCurrentStation());
+        radio.prevStation();
+        assertEquals(8, radio.getCurrentStation());
+        radio.prevStation();
+        assertEquals(7, radio.getCurrentStation());
+        radio.prevStation();
+        assertEquals(6, radio.getCurrentStation());
+        radio.prevStation();
+        assertEquals(5, radio.getCurrentStation());
+        radio.prevStation();
+        assertEquals(4, radio.getCurrentStation());
+        radio.prevStation();
+        assertEquals(3, radio.getCurrentStation());
+        radio.prevStation();
+        assertEquals(2, radio.getCurrentStation());
+        radio.prevStation();
+        assertEquals(1, radio.getCurrentStation());
+        radio.prevStation();
+        assertEquals(0, radio.getCurrentStation());
+        radio.prevStation();
+        assertEquals(9, radio.getCurrentStation());
+        radio.prevStation();
+        assertEquals(8, radio.getCurrentStation());
+        radio.prevStation();
+        assertEquals(7, radio.getCurrentStation());
+    }
 
-        int expected = 6;
-        int actual = radio.nextStation();
 
-        assertEquals(expected, actual);
+
+    @Test
+    void shouldincreaseVolume() {
+        radio.increaseVolume();
+        assertEquals(1, radio.getCurrentVolume());
+        radio.increaseVolume();
+        assertEquals(2, radio.getCurrentVolume());
+        radio.increaseVolume();
+        assertEquals(3, radio.getCurrentVolume());
+        radio.increaseVolume();
+        assertEquals(4, radio.getCurrentVolume());
+        radio.increaseVolume();
+        assertEquals(5, radio.getCurrentVolume());
+        radio.increaseVolume();
+        assertEquals(6, radio.getCurrentVolume());
+        radio.increaseVolume();
+        assertEquals(7, radio.getCurrentVolume());
+        radio.increaseVolume();
+        assertEquals(8, radio.getCurrentVolume());
+        radio.increaseVolume();
+        assertEquals(9, radio.getCurrentVolume());
+        radio.increaseVolume();
+        assertEquals(10, radio.getCurrentVolume());
+        radio.increaseVolume();
+        assertEquals(10, radio.getCurrentVolume());
     }
 
     @Test
-    void shouldprevStationIfCurrent0() {
-        radio.setCurrentStation(0);
+    void shouldreduceVolume() {
+        radio.setCurrentVolume(10);
+        radio.reduceVolume();
+        assertEquals(9, radio.getCurrentVolume());
+        radio.reduceVolume();
+        assertEquals(8, radio.getCurrentVolume());
+        radio.reduceVolume();
+        assertEquals(7, radio.getCurrentVolume());
+        radio.reduceVolume();
+        assertEquals(6, radio.getCurrentVolume());
+        radio.reduceVolume();
+        assertEquals(5, radio.getCurrentVolume());
+        radio.reduceVolume();
+        assertEquals(4, radio.getCurrentVolume());
+        radio.reduceVolume();
+        assertEquals(3, radio.getCurrentVolume());
+        radio.reduceVolume();
+        assertEquals(2, radio.getCurrentVolume());
+        radio.reduceVolume();
+        assertEquals(1, radio.getCurrentVolume());
+        radio.reduceVolume();
+        assertEquals(0, radio.getCurrentVolume());
+        radio.reduceVolume();
+        assertEquals(0, radio.getCurrentVolume());
+        radio.reduceVolume();
 
-        int expected = 9;
-        int actual = radio.prevStation();
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void shouldprevStationIfCurrent5() {
-        radio.setCurrentStation(5);
-
-        int expected = 4;
-        int actual = radio.prevStation();
-
-        assertEquals(expected, actual);
     }
 
 
 }
+
+
+
+
