@@ -16,15 +16,14 @@ public class Radio {
     }
 
 
-    public int setCurrentStation(int CurrentStation) {
-        if (CurrentStation < 0)
-            return currentStation = 9;
+    public void setCurrentStation(int currentStation) {
+        if (currentStation < 0)
+             currentStation = 9;
 
-        if (CurrentStation > 9)
-            return currentStation = 0;
+        if (currentStation > 9)
+            currentStation = 0;
 
-        this.currentStation = CurrentStation;
-        return CurrentStation;
+        this.currentStation = currentStation;
     }
 
     public void nextStation() {

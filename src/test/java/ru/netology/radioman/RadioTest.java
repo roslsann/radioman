@@ -22,11 +22,7 @@ class RadioTest {
     @Test
     void setCurrentStationMoreThen9() {
         radio.setCurrentStation(10);
-
-        int expected = 0;
-        int actual = radio.getCurrentStation();
-
-        assertEquals(expected, actual);
+        assertEquals(0, radio.getCurrentStation());
     }
 
 
