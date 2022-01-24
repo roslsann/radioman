@@ -27,21 +27,21 @@ class RadioTest {
 
     @Test
     void shouldsetCurrentStationLessThenMinConstructor() {
-        Radio radio = new Radio(20);
+        Radio radio = new Radio(0,0,20);
         radio.setCurrentStation(-1);
         assertEquals(19, radio.getCurrentStation());
     }
 
     @Test
     void shouldsetCurrentStationMoreThenMaxConstructor() {
-        Radio radio = new Radio(20);
+        Radio radio = new Radio(0,0,20);
         radio.setCurrentStation(21);
         assertEquals(0, radio.getCurrentStation());
     }
 
     @Test
     void shouldnextStationIfCurrentFromConstructor() {
-        Radio radio = new Radio(20);
+        Radio radio = new Radio(0,0,20);
         radio.setCurrentStation(15);
         radio.nextStation();
         assertEquals(16, radio.getCurrentStation());
@@ -49,7 +49,7 @@ class RadioTest {
 
     @Test
     void shouldnextStationIfCurrentFromConstructorMoreMax() {
-        Radio radio = new Radio(20);
+        Radio radio = new Radio(0,0,20);
         radio.setCurrentStation(19);
         radio.nextStation();
         assertEquals(0, radio.getCurrentStation());
@@ -57,7 +57,7 @@ class RadioTest {
 
     @Test
     void shouldprevStationIfCurrentFromConstruktor() {
-        Radio radio = new Radio(20);
+        Radio radio = new Radio(0,0,20);
         radio.setCurrentStation(15);
         radio.prevStation();
         assertEquals(14, radio.getCurrentStation());
@@ -65,7 +65,7 @@ class RadioTest {
 
     @Test
     void shouldprevStationIfCurrentFromConstruktorLessMin() {
-        Radio radio = new Radio(20);
+        Radio radio = new Radio(0,0,20);
         radio.setCurrentStation(0);
         radio.prevStation();
         assertEquals(19, radio.getCurrentStation());
