@@ -8,27 +8,6 @@ class RadioTest {
     Radio radio = new Radio();
 
     @Test
-    void shouldsetCurrentIfNumberOfStationFromConstructor() {
-        Radio radio = new Radio(15);
-        radio.setCurrentStation(13);
-        assertEquals(13, radio.getCurrentStation());
-    }
-
-    @Test
-    void shouldsetCurrentIfSetMoreThenMax() {
-        Radio radio = new Radio(15);
-        radio.setCurrentStation(16);
-        assertEquals(0, radio.getCurrentStation());
-    }
-
-    @Test
-    void shouldsetCurrentIfSetLessThenMin() {
-        Radio radio = new Radio(15);
-        radio.setCurrentStation(-1);
-        assertEquals(14, radio.getCurrentStation());
-    }
-
-    @Test
     void setCurrentStation() {
         radio.setCurrentStation(5);
         assertEquals(5, radio.getCurrentStation());
@@ -47,34 +26,43 @@ class RadioTest {
     }
 
     @Test
-    void shouldnextStationIfCurrent17() {
-        Radio radio = new Radio(20);
-        radio.setCurrentStation(17);
+    void shouldnextStationIfCurrent0() {
         radio.nextStation();
-        assertEquals(18, radio.getCurrentStation());
+        assertEquals(1, radio.getCurrentStation());
     }
 
     @Test
-    void shouldnextStationIfCurrentFromConstructorMoreMax() {
-        Radio radio = new Radio(20);
-        radio.setCurrentStation(19);
+    void shouldnextStationIfCurrent5() {
+        radio.setCurrentStation(5);
+        radio.nextStation();
+        assertEquals(6, radio.getCurrentStation());
+    }
+
+    @Test
+    void shouldnextStationIfCurrent9() {
+        radio.setCurrentStation(9);
         radio.nextStation();
         assertEquals(0, radio.getCurrentStation());
     }
 
     @Test
-    void shouldprevStationIfCurrentFromConstructor() {
-        Radio radio = new Radio(20);
-        radio.setCurrentStation(13);
+    void shouldprevStationIfCurrent0() {
         radio.prevStation();
-        assertEquals(12, radio.getCurrentStation());
+        assertEquals(9, radio.getCurrentStation());
     }
 
     @Test
-    void shouldprevStationIfCurrentFromConstrukctorLessMin() {
-        Radio radio = new Radio(20);
+    void shouldprevStationIfCurrent5() {
+        radio.setCurrentStation(5);
         radio.prevStation();
-        assertEquals(19, radio.getCurrentStation());
+        assertEquals(4, radio.getCurrentStation());
+    }
+
+    @Test
+    void shouldprevStationIfCurrent9() {
+        radio.setCurrentStation(9);
+        radio.prevStation();
+        assertEquals(8, radio.getCurrentStation());
     }
 
     @Test
@@ -84,17 +72,17 @@ class RadioTest {
     }
 
     @Test
-    void shouldincreaseVolumeIfCurrent50() {
-        radio.setCurrentVolume(50);
+    void shouldincreaseVolumeIfCurrent5() {
+        radio.setCurrentVolume(5);
         radio.increaseVolume();
-        assertEquals(51, radio.getCurrentVolume());
+        assertEquals(6, radio.getCurrentVolume());
     }
 
     @Test
     void shouldincreaseVolumeIfCurrent10() {
-        radio.setCurrentVolume(100);
+        radio.setCurrentVolume(10);
         radio.increaseVolume();
-        assertEquals(100, radio.getCurrentVolume());
+        assertEquals(10, radio.getCurrentVolume());
     }
 
     @Test
@@ -104,17 +92,17 @@ class RadioTest {
     }
 
     @Test
-    void shouldreduceVolumeIfcurrent55() {
-        radio.setCurrentVolume(55);
+    void shouldreduceVolumeIfcurrent5() {
+        radio.setCurrentVolume(5);
         radio.reduceVolume();
-        assertEquals(54, radio.getCurrentVolume());
+        assertEquals(4, radio.getCurrentVolume());
     }
 
     @Test
-    void shouldreduceVolumeIfcurrent100() {
-        radio.setCurrentVolume(100);
+    void shouldreduceVolumeIfcurrent10() {
+        radio.setCurrentVolume(10);
         radio.reduceVolume();
-        assertEquals(99, radio.getCurrentVolume());
+        assertEquals(9, radio.getCurrentVolume());
     }
 }
 
